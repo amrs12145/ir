@@ -44,18 +44,17 @@ idf = {
 }
 
 def calcIDF(idf):
-    for i in range(1,6):    
-        f = open(f'{i}.txt','r')
+    for i in range(1,11):    
+        f = open(f'Documents/Doc{i}.txt','r')
         flist = f.read().split(' ')
 
         for i in idf.keys():
             if i in flist:
                 idf[i]+=1
-    else:
-        for i in idf.keys():
-            idf[i] = math.log2(5/idf[i])
+        else:
+            for i in idf.keys():
+                idf[i] = math.log2(10/idf[i])
 
-calcIDF(idf)
 
 
 
@@ -203,6 +202,7 @@ def local():
     if request.method=='POST':
         global query
         query = request.form['btn']
+        calcIDF(idf)
         return render_template('index.html',passed= sortDic(allCalc()) )
 
 

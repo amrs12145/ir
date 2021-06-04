@@ -94,7 +94,7 @@ docs ={
 
 def calcSim( docs ):
     for i in range(1,11):
-        docs[f'Doc{i}'] = sim( calcDocWeight(f'Documents/doc{i}.txt'), qweight )
+        docs[f'Doc{i}'] = sim( calcDocWeight(f'Documents/Doc{i}.txt'), qweight )
     return docs
 
 def sortDic( docs ):    
